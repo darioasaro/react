@@ -1,0 +1,17 @@
+.cardContainer{
+    display:flex;
+    flex-direction: row;
+    background-color: rgb(221, 212, 212);
+    padding: 4px;
+    height: 100%;
+    margin-left: 190px;
+    justify-content:center;
+    flex-wrap: wrap;
+   }
+
+   .titulo{
+      text-align: left;
+      padding-left:4px ;
+       margin-left: 5px;
+       width: 100%;
+   }

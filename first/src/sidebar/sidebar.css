@@ -1,0 +1,44 @@
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    -ms-flex-align: end;
+    background-color:black;
+    margin:0px;
+    text-align: left;
+    width:200px ;
+    height: 900px;
+    flex-shrink: 0;
+    flex:0 1 auto;
+    margin-top: 34px;
+    
+    
+}
+.sidebar .lista{
+    list-style: none;
+    display: flex;
+    padding: 5px;
+    text-align: left;
+    color: white;
+    margin: auto;
+    
+    width:max-content ;
+    height: max-content;
+}
+.sidebar .info{
+    color: white;
+    padding-top: 25%;
+    height: 15%;
+    background-color: grey;
+    text-align: center;
+}
+.radio-botton{
+    text-align: left;
+    color: white;
+    padding-left: 30px;
+}
+.desc-search{
+    padding-top: 10px;
+    color:grey;
+}
+
