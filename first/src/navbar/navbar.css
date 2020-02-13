@@ -3,12 +3,14 @@
     display: flex;
     background-color: black;
     height: 100px;
-    align-items: flex-start;
+    
     flex-direction: column;
     flex-shrink: 0;
 }
 .boton-container{
-    margin-bottom: 0px;
+    flex-direction: row;
+    align-self: flex-start;
+    
 }
 
 

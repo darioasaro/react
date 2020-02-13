@@ -1,22 +1,45 @@
 import React, {Component} from 'react'
 import './Card.css'
-import img from '../images/javascript.jpg'
+import GraphCard from '../graphcard/graphcard.js'
 
 class Card extends Component{
     constructor(props){
         super(props)
-        console.log(props);
+        this.handleClick = this.handleClick.bind(this);
         
         this.state={
             cardImg:this.props.cardImg,
-            cardDesc:this.props.carDesc
+            cardDesc:this.props.carDesc,
+            visible:false
     };
     }
+
+   
+
+    handleClick(){
+        this.setState(state => ({
+            visible: !state.visible
+          }));
+        
+    }
+    
     render(){
+
+            if(this.state.visible == true){
+              
+
+               return( <div>
+                    <GraphCard visible={this.state.visible}/>
+                </div>
+               )
+            }
+
+            else{
+
         return(
             <div className="card">
                 <div className="img-container">
-                    <a href="#"><img className="img-card" src={this.state.cardImg}></img></a>
+                    <button onClick={this.handleClick}><img className="img-card" src={this.state.cardImg}></img></button>
                 </div>
                 <div className="description">
                     <p>{this.state.cardDesc}</p>
@@ -25,6 +48,7 @@ class Card extends Component{
             </div>
 
         )
+            }
     }
 }
 export default Card
