@@ -11,6 +11,7 @@ class CardContainer extends Component{
     constructor(props){
         super(props)
         this.handleClick=this.handleClick.bind(this)
+        this.handleBoton=this.handleBoton.bind(this)
         this.state={
             
             arrCards:props.arrCards,
@@ -21,9 +22,16 @@ class CardContainer extends Component{
         }
 
     };
+
+    handleBoton(){
+        this.setState({
+            arrGrap:this.props.arrGrap,
+            graphic:false
+        })
+
+    }
 //captura el evento del click en la card y busca en el arrGrap el grafico correspondiente
-    handleClick(e,clave){
-       e.preventDefault() 
+    handleClick(clave){ 
         
       const graph = this.state.arrGrap.filter((grap)=>{
             
@@ -71,7 +79,7 @@ class CardContainer extends Component{
                 }
         else{
             return(
-            <div><h1>{this.state.arrGrap[0].description}</h1></div>
+            <GraphCard handleBoton={this.handleBoton} description = {this.state.arrGrap[0].description} photo={this.state.arrGrap[0].photo} />
             )
         }
        

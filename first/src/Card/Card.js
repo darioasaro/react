@@ -19,11 +19,8 @@ class Card extends Component{
 
    
 //handle para ejecutar luego de hacer click en la imagen de la card 
-    handleClick(e){
-        e.preventDefault()
-         
-       this.props.handleClick(e,this.props.clave)
-        
+    handleClick(){  
+       this.props.handleClick(this.props.clave)    
     }
     
     render(){
