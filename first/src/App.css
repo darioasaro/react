@@ -2,7 +2,10 @@
 .App {
   text-align: center;
   height: 100%;
- 
+  background-color: rgb(221, 212, 212);
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
 }
 
 .App-logo {

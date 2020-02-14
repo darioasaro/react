@@ -1,47 +1,82 @@
+//   **** ABRIR CONSOLA PARA VER EL ERROR DE EJECUCION LUEGO DE HACER CLICK EN LA CARD***
+
+
 import React,{Component} from 'react'
 import Card from '../Card/Card.js'
+import GraphCard from '../graphcard/graphcard.js'
 import '../cardContainer/cardContainer.css'
-import imagen from '../images/javascript.jpg'
-import imagenjava from '../images/java.jpeg'
-import imagenNode from '../images/node.jpeg'
+
 
 class CardContainer extends Component{
     constructor(props){
         super(props)
+        this.handleClick=this.handleClick.bind(this)
         this.state={
-            arrCards:[
-                { img :imagen, 
-                  desc:'What is JavaScript ? JavaScript is a dynamic computer programming language. It is lightweight and most commonly used as a part of web pages, whose implementations allow client-side script to interact with the user and make dynamic pages. It is an interpreted programming language with object-oriented capabilities.'
-                },
-                 { img : imagenjava,
-                  desc:'Java es un lenguaje de programación orientado a objetos que se incorporó al ámbito de la informática en los años noventa. La idea de Java es que pueda realizarse programas con la posibilidad de ejecutarse en cualquier contexto, en cualquier ambiente, siendo así su portabilidad uno de sus principales logros'
-                },
-                {  img : imagenNode,
-                  desc:'Node.js es una librería y entorno de ejecución de E/S dirigida por eventos y por lo tanto asíncrona que se ejecuta sobre el intérprete de JavaScript creado por Google V8. Lo cierto es que está muy de moda aunque no es algo nuevo puesto que existen librerías como Twisted que hacen exactamente lo mismo pero si es cierto que es la primera basada en JavaScript y que tiene un gran rendimiento.'
-                }
             
-                
-              ]
+            arrCards:props.arrCards,
+            arrGrap : props.arrGrap,
+            graphic : false
+
+              
         }
 
     };
-
+//captura el evento del click en la card y busca en el arrGrap el grafico correspondiente
+    handleClick(e,clave){
+       e.preventDefault() 
+        
+      const graph = this.state.arrGrap.filter((grap)=>{
+            
+                if (grap.clave === clave){ 
+                     
+                  this.setState(
+                  {
+                      graphic:true,
+                      arrGrap:graph
+                  })
+                
+                return grap
+                  
+                }
+                
+                 
+        })
+        
+        
+     
+            this.setState({
+                arrGrap:graph
+            })
+            
+     
+     
+}
+    //*** FALTA CREAR CONDICIONAL PARA RENDERIZAR ARRCARDS O ARRGRAP
     render(){
-        return(
 
+        if(this.state.graphic===false){
+        return(
+            
          <div className="cardContainer">
          <div className="titulo">
          <h2 >Lenguajes & Tecnologias</h2><br/></div>
 
                 { this.state.arrCards.map((card,i)=>
 
-                    <Card cardImg={card.img} carDesc={card.desc} /> )}
+                    <Card cardImg={card.img} carDesc={card.desc} clave={card.clave} handleClick={this.handleClick}/> )}
 
 
         </div>
+        )
+                }
+        else{
+            return(
+            <div><h1>{this.state.arrGrap[0].description}</h1></div>
+            )
+        }
+       
 
-
-        );
+       
     }
 }
 export default CardContainer

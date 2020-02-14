@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import './Card.css'
-import GraphCard from '../graphcard/graphcard.js'
+
 
 class Card extends Component{
     constructor(props){
@@ -10,33 +10,27 @@ class Card extends Component{
         this.state={
             cardImg:this.props.cardImg,
             cardDesc:this.props.carDesc,
-            visible:false
+            key:this.props.key,
+            
+        
+            
     };
     }
 
    
-
-    handleClick(){
-        this.setState(state => ({
-            visible: !state.visible
-          }));
+//handle para ejecutar luego de hacer click en la imagen de la card 
+    handleClick(e){
+        e.preventDefault()
+         
+       this.props.handleClick(e,this.props.clave)
         
     }
     
     render(){
 
-            if(this.state.visible == true){
-              
-
-               return( <div>
-                    <GraphCard visible={this.state.visible}/>
-                </div>
-               )
-            }
-
-            else{
-
         return(
+           
+            
             <div className="card">
                 <div className="img-container">
                     <button onClick={this.handleClick}><img className="img-card" src={this.state.cardImg}></img></button>
@@ -48,7 +42,7 @@ class Card extends Component{
             </div>
 
         )
-            }
+            
     }
 }
 export default Card

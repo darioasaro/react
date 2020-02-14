@@ -1,9 +1,10 @@
 
- .navbar{
+ .navbarse{
     display: flex;
     background-color: black;
     height: 100px;
-    
+    align-self: flex-start;
+    width: 100%;
     flex-direction: column;
     flex-shrink: 0;
 }

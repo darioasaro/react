@@ -1,3 +1,8 @@
+
+  
+  
+
+
 .sidebar{
     display: flex;
     flex-direction: column;
@@ -11,6 +16,7 @@
     flex-shrink: 0;
     flex:0 1 auto;
     margin-top: 34px;
+    justify-self:left;
     
     
 }

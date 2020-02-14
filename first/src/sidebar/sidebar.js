@@ -3,9 +3,7 @@ import '../sidebar/sidebar.css'
 class SideBar extends React.Component{
     constructor(props){
         super(props)
-        this.state={
-            isShow:false
-        };
+
     }
     
     
@@ -24,6 +22,8 @@ class SideBar extends React.Component{
         }
         else{     
         return(
+         
+          
             <div className="sidebar">
                 <section className="info">
                     Asaro Ruben Dario <br/>
